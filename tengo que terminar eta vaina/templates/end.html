@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  >
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>tienda enlanados</title>
+</head>
+<body>
+  <header class="heade">
+    <div class="header__text">
+      <a href="../"><button class="button">Enlanados</button></a>
+    </div>
+    <div>
+      <a href="../shop"><button class="button">tienda virtual</button></a>
+    </div>
+    <div>
+      <a href="../login"><button class="button">log in</button></a>
+    </div>
+    <div>
+      <a href="../reg"><button class="button">registrate :D</button></a>
+    </div>
+    <div class="container-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="icon-cart"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+        />
+      </svg>
+      <div class="count-products">
+        <span id="contador-productos">0</span>
+      </div>
+
+      <div class="container-cart-products hidden-cart">
+        <div class="cart-product">
+          <div class="info-cart-product">
+                      </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon-close"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </div>
+                  <div class="cart-total">
+                      <h3>Total:</h3>
+                      <span class="total-pagar">$200</span>
+                  </div>
+      </div>
+    </div>
+  </header>
+      <main class="main-login">
+        {% block content %}
+        <form action="{{ url_for('login') }}" method="POST" class="login">
+            <p class="error">{{error}}</p>
+
+
+            <label for="email">
+              <input class="form__input" type="email" name="email" id="email" placeholder="Introduzca su e-mail" required>
+            </label>
+
+            <label for="password">
+              <input class="form__input" type="password" name="password" id="password" placeholder="Introduzca su contraseña" required>
+            </label>
+
+
+                <button class="form__button">Iniciar sesión</button>
+                <a href="/reg" class="form__button reg__link">Registrarse</a>
+        </form>
+        {% endblock %}
+      </main>
+</body>
+</html>
